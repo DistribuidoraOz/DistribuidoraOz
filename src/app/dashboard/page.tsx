@@ -1,7 +1,11 @@
-export default function page(){
+import SectionProductCard from "../components/sectionProductCard";
+import { findAllproduct } from "../consult/fetching";
+
+export default async function page(){
+
+    const list = await findAllproduct();
+
     return(
-        <div>
-            <h1>Soy dashboard!</h1>
-        </div>
+        <SectionProductCard list={list} /> 
     );
 }

@@ -14,33 +14,73 @@ import {
   Transition,
 } from '@headlessui/react'
 import {
-  ArrowPathIcon,
+  BookOpenIcon,
+  SunIcon,
+  ShoppingBagIcon,
+  FireIcon,
+  RocketLaunchIcon,
+  GiftIcon,
+  BuildingStorefrontIcon,
   Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
   SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import Search from '../ui/search';
-
-const categorias = [
-  { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-  { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-  { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-  { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
-]
+import { optionField } from '../lib/definitions';
 
 
 function classNames(...classes: (string | false | null | undefined)[]): string {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Example() {
+export default function HeaderMenu({list}: {list: optionField[]}){
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  var newList = list.map((item)=>{
+    let href = `/${item.id}`;
+    let icon;
+    switch (item.nombre) {
+      case 'Bazar':
+        icon = ShoppingBagIcon;
+        break;
+      case 'Playa':
+        icon = SunIcon;
+        break;
+
+      case 'Regaleria':
+        icon = GiftIcon;
+        break;
+
+      case 'Libreria':
+        icon = BookOpenIcon;
+        break;
+
+      case 'Camping':
+        icon = FireIcon;
+        break;
+
+      case 'Jugueteria':
+        icon = RocketLaunchIcon;
+        break;
+
+      case 'Regional':
+        icon = BuildingStorefrontIcon;
+        break;
+
+      case 'Varios':
+        icon = SquaresPlusIcon;
+        break;
+
+      default:
+        icon = SquaresPlusIcon;
+        break;
+    }
+    return {...item, href, icon}
+  });
+  //console.log("soy newList en headermenu: ", newList);
+
+  
   return (
     <header className=" bg-cover bg-center bg-[url('https://res.cloudinary.com/dnnafr8ny/image/upload/v1720797756/baner9_uxgf3u.jpg')]">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
@@ -77,9 +117,9 @@ export default function Example() {
             >
               <PopoverPanel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
                 <div className="p-4">
-                  {categorias.map((item) => (
+                  {newList.map((item) => (
                     <div
-                      key={item.name}
+                      key={item.nombre}
                       className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
                     >
                       <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
@@ -87,10 +127,10 @@ export default function Example() {
                       </div>
                       <div className="flex-auto">
                         <a href={item.href} className="block font-semibold text-gray-900">
-                          {item.name}
+                          {item.nombre}
                           <span className="absolute inset-0" />
                         </a>
-                        <p className="mt-1 text-gray-600">{item.description}</p>
+                        {/*<p className="mt-1 text-gray-600">{item.description}</p>*/}
                       </div>
                     </div>
                   ))}
@@ -147,14 +187,14 @@ export default function Example() {
                         />
                       </DisclosureButton>
                       <DisclosurePanel className="mt-2 space-y-2">
-                        {[...categorias].map((item) => (
+                        {[...newList].map((item) => (
                           <DisclosureButton
-                            key={item.name}
+                            key={item.nombre}
                             as="a"
                             href={item.href}
                             className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                           >
-                            {item.name}
+                            {item.nombre}
                           </DisclosureButton>
                         ))}
                       </DisclosurePanel>
@@ -195,3 +235,5 @@ export default function Example() {
     </header>
   )
 }
+
+

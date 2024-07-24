@@ -1,24 +1,25 @@
 import { ListBulletIcon } from "@heroicons/react/24/outline";
-import { optionField, propsImput } from "../lib/definitions";
+import { optionField } from "../lib/definitions";
 
-export function ImputListName({list, prop}: 
-  {list: optionField[], prop: propsImput}){
-
+export function ImputListName({ list, label }: 
+  {list: optionField[], label:string }){
+    var error:[] = [];
+    
     return (
       <div className="mb-4">
-        <label htmlFor={prop.name} className="mb-2 block text-sm font-medium">
-          {`Seleccione una ${prop.name}`}
+        <label htmlFor={label} className="mb-2 block text-sm font-medium">
+          {`Seleccione una ${label}`}
         </label>
         <div className="relative">
           <select
-            id={prop.id}
-            name={prop.name}
+            id={label}
+            name={`${label}Id`}
             className="peer block w-full cursor-pointer rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
             defaultValue=""
-            aria-describedby={`${prop.id}-error`}
+            aria-describedby={`${label}-error`}
           >
             <option value="" disabled>
-              {`Seleccione una ${prop.name}`}
+              {`Seleccione una ${label}`}
             </option>
             {list.map((option) => (
               <option key={option.id} value={option.id}>
@@ -28,8 +29,8 @@ export function ImputListName({list, prop}:
           </select>
           <ListBulletIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
         </div>
-        <div id={`${prop.id}-error`} aria-live="polite" aria-atomic="true">
-          {prop.errors?.map((error: any) => (
+        <div id={`${label}-error`} aria-live="polite" aria-atomic="true">
+          {error?.map((error: any) => (
             <p className="mt-2 text-sm text-red-500" key={error}>
               {error}
             </p>

@@ -1,26 +1,14 @@
 "use client";
 
 import { PhotoIcon } from '@heroicons/react/24/solid';
-import { dataForm, optionField, propsImput } from '@/app/lib/definitions';
+import { dataForm, optionField } from '@/app/lib/definitions';
 import { ImputListName } from './list-name-imput';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
-const propA: propsImput = {
-  id: 'categoria',
-  name: 'categoria',
-  errors: []
-}
 
-const propB: propsImput = {
-id: 'marca',
-name: 'marca',
-errors: []
-}
-
-export default function CreateForm({categorias, marcas}:
-  {categorias: optionField[], marcas: optionField[]}
-) {
+export default function CreateForm({ marcas, categoriaId }: { marcas: optionField[], categoriaId: string })
+{
   
   const [datos, setDatos] = useState<dataForm>({
     categoriaId: '',
@@ -62,7 +50,7 @@ export default function CreateForm({categorias, marcas}:
     const form = e.target;
     const formData = new FormData(form);
     const { nombre, descripcion, imagen } = datos;
-
+    formData.set('categoriaId', categoriaId)
     formData.set('nombre', nombre);
     formData.set('descripcion', descripcion);
     if(imagen)
@@ -84,8 +72,7 @@ export default function CreateForm({categorias, marcas}:
             Todos los campos son obligatorios, no deje ninguno sin completar.
           </p>
           <br/>
-          <ImputListName list={categorias} prop={propA} />
-          <ImputListName list={marcas} prop={propB} />
+          <ImputListName list={marcas} label='marca' />
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div className="sm:col-span-4">
               <label htmlFor="nombre" className="block text-sm font-medium leading-6 text-gray-900">

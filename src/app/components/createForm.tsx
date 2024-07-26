@@ -5,6 +5,7 @@ import { dataForm, optionField } from '@/app/lib/definitions';
 import { ImputListName } from './list-name-imput';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { createProduct } from '../lib/actions';
 
 
 export default function CreateForm({ marcas, categoriaId }: { marcas: optionField[], categoriaId: string })
@@ -56,11 +57,7 @@ export default function CreateForm({ marcas, categoriaId }: { marcas: optionFiel
     if(imagen)
       formData.set('imagen', imagen); 
 
-    const response = await fetch('http://localhost:4000/newproduct', { 
-      method: form.method, 
-      body: formData,
-    });
-    //falta redireccionar y revalidar la ruta, Cambier handleSubmit a una server functions!
+    createProduct(formData);
   }
 
   return (

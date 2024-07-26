@@ -29,7 +29,6 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import Search from '../ui/search';
 import { optionField } from '../lib/definitions';
 
-
 function classNames(...classes: (string | false | null | undefined)[]): string {
   return classes.filter(Boolean).join(' ');
 }
@@ -38,7 +37,7 @@ export default function HeaderMenu({list}: {list: optionField[]}){
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   var newList = list.map((item)=>{
-    let href = `/${item.id}`;
+    let href = `/dashboard/${item.id}`;
     let icon;
     switch (item.nombre) {
       case 'Bazar':
@@ -82,12 +81,12 @@ export default function HeaderMenu({list}: {list: optionField[]}){
 
   
   return (
-    <header className=" bg-cover bg-center bg-[url('https://res.cloudinary.com/dnnafr8ny/image/upload/v1720797756/baner9_uxgf3u.jpg')]">
+    <header className=" bg-cover bg-center shadow-2xl bg-[url('https://res.cloudinary.com/dnnafr8ny/image/upload/v1721955493/4444_s108rc.jpg')]">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+            <img className="lg:justify-start h-28 w-auto" src='https://res.cloudinary.com/dnnafr8ny/image/upload/v1721943317/logo2_tias2j.png' alt="" />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -102,7 +101,7 @@ export default function HeaderMenu({list}: {list: optionField[]}){
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
           <Popover className="relative">
-            <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+            <PopoverButton className="flex items-center gap-x-1 text-md font-semibold leading-6 text-gray-900">
               Productos
               <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
             </PopoverButton>
@@ -141,8 +140,8 @@ export default function HeaderMenu({list}: {list: optionField[]}){
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Nosotros
           </a>
-          <a href="/dashboard" className="text-sm font-semibold leading-6 text-gray-900">
-            Tienda
+          <a href="/" className="text-sm font-semibold leading-6 text-gray-900">
+            Home
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Contactanos
@@ -160,7 +159,7 @@ export default function HeaderMenu({list}: {list: optionField[]}){
               <span className="sr-only">Your Company</span>
               <img
                 className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                src='../img/logo.png'
                 alt=""
               />
             </a>
@@ -221,12 +220,6 @@ export default function HeaderMenu({list}: {list: optionField[]}){
                 </a>
               </div>
               <div className="py-6">
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Log in
-                </a>
               </div>
             </div>
           </div>

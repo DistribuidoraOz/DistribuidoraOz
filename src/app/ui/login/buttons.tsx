@@ -1,27 +1,30 @@
+'use client';
+
 import Link from "next/link";
-import { TrashIcon, PencilIcon } from "@heroicons/react/24/outline";
+import { PowerIcon, LockOpenIcon } from "@heroicons/react/24/outline";
+import { signIn, signOut } from 'next-auth/react';
 
-
-
-export function UpdateInvoice({ id }: { id: string }) {
+export function LogIn() {
     return (
-      <Link
-        href={`/dashboard/invoices/${id}/edit`}
+      <button 
         className="rounded-md border p-2 hover:bg-gray-100"
-      >
-        <PencilIcon className="w-5" />
-      </Link>
+        onClick={()=>{
+        signIn('github');
+      }}>
+        <LockOpenIcon className="w-5"/>
+      </button>
     );
 }
   
-export function DeleteInvoice({ id }: { id: string }) {
-    //const deleteInvoiceWithId = deleteInvoice.bind(null, id);
+export function LogOut() {
+    
     return (
-      <form action={'deleteInvoices...'}>
-        <button className="rounded-md border p-2 hover:bg-gray-100">
-          <span className="sr-only">Delete</span>
-          <TrashIcon className="w-5" />
-        </button>
-      </form>
+      <button 
+        className=" absolute bottom-2 left-2 rounded-md border p-2 hover:bg-gray-100"
+        onClick={()=>{
+        signOut({redirect: true});
+      }}>
+          <PowerIcon className="w-5" />
+      </button>
     );
 }

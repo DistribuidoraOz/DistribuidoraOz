@@ -21,10 +21,10 @@ export async function findAllcategory(){
     }   
 }
 
-export async function findCategoryByName(name: string) {
+export async function findCategoryById(id: string) {
     noStore();
     try {
-       const response = await fetch(`${basicUrl}categoria/${name}`);
+       const response = await fetch(`${basicUrl}categoria/${id}`);
        if(!response.ok){
         return null;
        }
@@ -67,6 +67,23 @@ export async function findMarcasByCategoria(id: string){
         return data; 
     } catch (error) {
         console.error('Ocurrio un error al recuperar los datos: ', error);
+        return [];
+    }   
+}
+
+export async function findMarcaById(id: string){
+    noStore();
+    try {
+        const response = await fetch(`http://localhost:4000/marca/${id}`);
+        if(!response.ok){
+            throw new Error('no se recupero marca por id')
+        }
+        const data = await response.json();
+        //console.log("soy responce en fecht: ", data);
+
+        return data; 
+    } catch (error) {
+        console.error('Ocurrio un error al recuperar marca por id: ', error);
         return [];
     }   
 }

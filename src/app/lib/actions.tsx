@@ -1,52 +1,63 @@
 "use server";
 
-//import { sql } from '@vercel/postgres';
+import { z } from 'zod';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
 
+const createProductSchema = z.object({
+    nombre: z.string().min(3, {message: "nombre debe tener un minimo de 3 caracteres."}),
+    descripcion: z.string({message: "Debe agragar una descripcion."}),
+    categoriaId: z.string().uuid({message: "No se ingreso categoria."}),
+    marcaId: z.string().uuid({message: "Debe seleccionar una marca."}),
+    imagen: z.instanceof(File, {message: "Debe agregar una imagen."})
+});
+
+
 export type State = {
     errors?: {
-      customerId?: string[];
-      amount?: string[];
-      status?: string[];
+      marcaId?: string[];
+      categoriaId?: string[];
+      nombre?: string[];
+      descripcion?: string[];
+      imagen?: string[];
     };
     message?: string | null;
 };
 
-export async function createProduct(prevState: State, formData: FormData){
-    {/* 
-    const validatedFields = CreateInvoice.safeParse({
-        customerId: formData.get('customerId'),
-        amount: formData.get('amount'),
-        status: formData.get('status') 
+export async function createProduct(formData: FormData){
+
+    const validatedFields = createProductSchema.safeParse({
+        nombre: formData.get('nombre'),
+        descripcion: formData.get('descripcion'),
+        categoriaId: formData.get('categoriaId'),
+        marcaId: formData.get('marcaId'),
+        imagen: formData.get('imagen')
     });
     if (!validatedFields.success) {
+        console.log("fallo la creacion del nuevo producto!")
         return {
           errors: validatedFields.error.flatten().fieldErrors,
-          message: 'Missing Fields. Failed to Create Invoice.',
+          message: 'Faltan campos en el formulario. Error al crear producto.',
         };
     }
-    const { customerId, amount, status } = validatedFields.data;
+    const {
+        categoriaId,
+        marcaId
+    } = validatedFields.data;
 
-    const amountInCents = amount * 100;
-    const date = new Date().toISOString().split('T')[0];
     try {
-        await sql`
-        INSERT INTO invoices (customer_id, amount, status, date)
-        VALUES (${customerId}, ${amountInCents}, ${status}, ${date})`;     
+        const response = await fetch('http://localhost:4000/newproduct', { 
+            method: 'POST', 
+            body: formData,
+          });    
     } catch (error) {
         return{
-            message: 'Database Error: Failed to Create Invoice.'
+            message: 'Fallo en Base de datos: Error al crear nuevo producto.'
         };
     }
-    revalidatePath('/dashboard/invoices');
-    redirect('/dashboard/invoices');
-    */}
-    return {
-        errors: 'nada que ver',
-        message: 'Missing Fields. Failed to Create Invoice.',
-      };
+    revalidatePath(`/dashboard/${categoriaId}/${marcaId}`);
+    redirect(`/dashboard/${categoriaId}/${marcaId}`);
 }
 
 export async function updateProduct(id: string, formData: FormData) {
@@ -73,3 +84,19 @@ export async function updateProduct(id: string, formData: FormData) {
     redirect('/dashboard/invoices');
     */}
   }
+
+export async function deleteProduct(id:string) {
+
+    try {
+        const res = await fetch(`http://localhost:4000/delete-producto/${id}`,{
+            method: 'DELETE'
+        });
+        if(!res.ok){
+            console.log("Delete button fail!!!");
+            return {message: "No se pudo eliminar producto, falla en la base de datos."}
+        }
+        redirect('/');
+    } catch (error) {
+        return {message: "Error al eliminar producto."}
+    }
+} 

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import HeaderMenu from "./components/headerMenu";
 import { findAllcategory } from "./consult/fetching";
+import Provider from "./context/provider";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,7 +22,7 @@ export default async function RootLayout({children}:{children: Readonly<React.Re
     <html lang="en">
       <body className={inter.className}>
         <HeaderMenu list={categorys}/>
-        {children}
+        <Provider>{children}</Provider>
         </body>
     </html>
   );

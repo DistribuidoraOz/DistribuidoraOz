@@ -9,8 +9,9 @@ const handler = NextAuth({
     })
   ],
   pages: {
-    error: '/auth/error',
+    signIn: '/',
     signOut: '/',
+    error: '/auth/error',
   },
   callbacks: {
     async signIn({user}){

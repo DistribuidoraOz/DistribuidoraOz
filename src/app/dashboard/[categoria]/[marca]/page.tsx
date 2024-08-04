@@ -6,7 +6,7 @@ export default async function Page({params}:{params: {marca:string}}){
     const cards = await findProductByMarcaId(params.marca);
 
     return(
-        <SectionProductCard list={cards} id={params.marca}/>
+        <SectionProductCard list={cards}/>
 
     )
 }

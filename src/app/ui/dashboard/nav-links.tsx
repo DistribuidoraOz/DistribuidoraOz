@@ -1,11 +1,8 @@
 'use client';
 
 import { SquaresPlusIcon } from '@heroicons/react/24/outline';
-
 import Link from 'next/link';
-
 import { usePathname } from 'next/navigation';
-
 import clsx from 'clsx';
 import { optionField } from '@/app/lib/definitions';
 
@@ -30,7 +27,7 @@ export default function NavLinks({list, ruta}:{list: optionField[], ruta:string}
             key={link.nombre}
             href={link.href}
             className={clsx(
-              "flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-orange-300 p-3 text-sm font-medium hover:bg-stone-100 hover:text-orange-600 md:flex-none md:justify-start md:p-2 md:px-3",
+              "flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-violet-300 p-3 text-sm font-medium hover:bg-stone-100 hover:text-violet-800 md:flex-none md:justify-start md:p-2 md:px-3",
               {
                 'bg-orange-400 text-orange-800': pathname === link.href,
               }

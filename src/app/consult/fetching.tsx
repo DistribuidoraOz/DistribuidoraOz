@@ -105,3 +105,21 @@ export async function findProductByMarcaId(id: string){
         return [];
     }   
 }
+
+export async function findProductByCategoryId(id: string){
+    noStore();
+    try {
+        const response = await fetch(`http://localhost:4000/productoByCategory/${id}`);
+        if(!response.ok){
+            console.log('no se recuperaron productos por categoria');
+            return null;
+        }
+        const data = await response.json();
+        //console.log("soy responce en fecht: ", data);
+        return data; 
+
+    } catch (error) {
+        console.error('Ocurrio un error al recuperar los productos x categoria: ', error);
+        return [];
+    }   
+}

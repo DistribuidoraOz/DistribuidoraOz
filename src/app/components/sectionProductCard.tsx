@@ -7,14 +7,13 @@ import { findMarcaById } from "../consult/fetching";
 
 
 
-export default async function SectionProductCard({list, id}:{list: cardData[], id: string }){
+export default async function SectionProductCard({list}:{list: cardData[]}){
 
   const session = await getServerSession();
   //const nameMarca = await findMarcaById(id);
     
   return(
     <div className="bg-none">
-      <h2 className="text-2xl font-bold tracking-tight text-gray-900">Productos marca: </h2>
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-2 lg:max-w-7xl lg:px-8">
         
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">

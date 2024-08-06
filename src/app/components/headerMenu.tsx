@@ -37,7 +37,7 @@ export default function HeaderMenu({list}: {list: optionField[]}){
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   var newList = list.map((item)=>{
-    let href = `/dashboard/${item.nombre}?id=${item.id}`;
+    let href = `/dashboard/${item.id}`;
     let icon;
     switch (item.nombre) {
       case 'Bazar':

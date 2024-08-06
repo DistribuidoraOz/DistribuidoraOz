@@ -10,10 +10,10 @@ import { optionField } from '@/app/lib/definitions';
 // Depending on the size of the application, this would be stored in a database.
 
 
-export default function NavLinks({list, ruta}:{list: optionField[], ruta:string}) {
+export default function NavLinks({ list, ruta }:{list: optionField[], ruta:string}) {
   const pathname: string = usePathname();
 
-  var newList = list.map((item)=>{
+  const newList = list.map((item)=>{
     let href = `/dashboard/${ruta}/${item.id}`;
     return {...item, href}
   });

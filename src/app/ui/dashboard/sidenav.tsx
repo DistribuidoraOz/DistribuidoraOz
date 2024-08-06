@@ -9,7 +9,7 @@ import { CardSkeleton } from '../skeleton';
 
 
 
-export default async function SideNav({ id }: {id:string}) {
+export default async function SideNav({ id }: { id:string }) {
   
   const marcas = await findMarcasByCategoria(id);
   const session = await getServerSession();

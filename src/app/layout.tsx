@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import HeaderMenu from "./components/headerMenu";
+import { WhatsAppImg } from "./components/whatsapp";
 import { findAllcategory } from "./consult/fetching";
 import Provider from "./context/provider";
 
@@ -23,6 +24,7 @@ export default async function RootLayout({children}:{children: Readonly<React.Re
       <body className={inter.className}>
         <HeaderMenu list={categorys}/>
         <Provider>{children}</Provider>
+        <WhatsAppImg/>
         </body>
     </html>
   );

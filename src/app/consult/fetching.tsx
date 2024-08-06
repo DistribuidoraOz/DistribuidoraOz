@@ -1,12 +1,12 @@
 
 import { unstable_noStore as noStore } from 'next/cache';
 
-const basicUrl: string = 'http://localhost:4000/';
+const basicUrl: string = 'https://distribuidorapi-c4686b9856e6.herokuapp.com';
 
 export async function findAllcategory(){
     noStore();
     try {
-        const response = await fetch(`http://localhost:4000/categorias`);
+        const response = await fetch(`${basicUrl}/categorys`);
 
         if(!response.ok){
             throw new Error('no se recuperaron datos')
@@ -24,7 +24,7 @@ export async function findAllcategory(){
 export async function findCategoryById(id: string) {
     noStore();
     try {
-       const response = await fetch(`${basicUrl}categoria/${id}`);
+       const response = await fetch(`${basicUrl}/categoryById/${id}`);
        if(!response.ok){
         return null;
        }
@@ -39,7 +39,7 @@ export async function findCategoryById(id: string) {
 export async function findAllMarcas() {
     noStore();
     try {
-        const response = await fetch(`${basicUrl}marcas`);
+        const response = await fetch(`${basicUrl}/marcas`);
         if(!response.ok){
             console.log("No se recuperaron todas las marcas, response no ok!");
             return null;
@@ -56,8 +56,9 @@ export async function findAllMarcas() {
 
 export async function findMarcasByCategoria(id: string){
     noStore();
+
     try {
-        const response = await fetch(`http://localhost:4000/marcas/${id}`);
+        const response = await fetch(`${basicUrl}/marcasByCategoryId/${id}`);
         if(!response.ok){
             throw new Error('no se recuperaron datos')
         }
@@ -71,27 +72,10 @@ export async function findMarcasByCategoria(id: string){
     }   
 }
 
-export async function findMarcaById(id: string){
-    noStore();
-    try {
-        const response = await fetch(`http://localhost:4000/marca/${id}`);
-        if(!response.ok){
-            throw new Error('no se recupero marca por id')
-        }
-        const data = await response.json();
-        //console.log("soy responce en fecht: ", data);
-
-        return data; 
-    } catch (error) {
-        console.error('Ocurrio un error al recuperar marca por id: ', error);
-        return [];
-    }   
-}
-
 export async function findProductByMarcaId(id: string){
     noStore();
     try {
-        const response = await fetch(`http://localhost:4000/productos/${id}`);
+        const response = await fetch(`${basicUrl}/productosByMarcaId/${id}`);
         if(!response.ok){
             console.log('no se recuperaron productos por marca');
             return null;
@@ -109,7 +93,7 @@ export async function findProductByMarcaId(id: string){
 export async function findProductByCategoryId(id: string){
     noStore();
     try {
-        const response = await fetch(`http://localhost:4000/productoByCategory/${id}`);
+        const response = await fetch(`${basicUrl}/productoByCategory/${id}`);
         if(!response.ok){
             console.log('no se recuperaron productos por categoria');
             return null;

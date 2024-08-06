@@ -2,7 +2,6 @@ import Image from "next/image";
 import { cardData } from "../lib/definitions";
 import { Delete, Update } from "../ui/product/buttons";
 import { getServerSession } from "next-auth";
-import { findMarcaById } from "../consult/fetching";
 
 
 
@@ -10,7 +9,6 @@ import { findMarcaById } from "../consult/fetching";
 export default async function SectionProductCard({list}:{list: cardData[]}){
 
   const session = await getServerSession();
-  //const nameMarca = await findMarcaById(id);
     
   return(
     <div className="bg-none">

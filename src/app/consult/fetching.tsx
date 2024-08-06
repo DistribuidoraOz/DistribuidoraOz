@@ -1,7 +1,7 @@
 
 import { unstable_noStore as noStore } from 'next/cache';
 
-const basicUrl: string = 'https://distribuidorapi-c4686b9856e6.herokuapp.com';
+const basicUrl: string = process.env.URL_API!;
 
 export async function findAllcategory(){
     noStore();

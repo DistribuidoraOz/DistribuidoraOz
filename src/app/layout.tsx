@@ -21,11 +21,13 @@ export default async function RootLayout({children}:{children: Readonly<React.Re
 
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <HeaderMenu list={categorys}/>
-        <Provider>{children}</Provider>
+      <body className={inter.className}> 
+        <Provider>
+          <HeaderMenu list={categorys}/>
+          {children}
+        </Provider>
         <WhatsAppImg/>
-        </body>
+      </body>
     </html>
   );
 }

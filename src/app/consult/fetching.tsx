@@ -78,7 +78,7 @@ export async function findProductByMarcaId(id: string){
         const response = await fetch(`${basicUrl}/productosByMarcaId/${id}`);
         if(!response.ok){
             console.log('no se recuperaron productos por marca');
-            return null;
+            return [];
         }
         const data = await response.json();
         //console.log("soy responce en fecht: ", data);
@@ -96,7 +96,7 @@ export async function findProductByCategoryId(id: string){
         const response = await fetch(`${basicUrl}/productoByCategory/${id}`);
         if(!response.ok){
             console.log('no se recuperaron productos por categoria');
-            return null;
+            return [];
         }
         const data = await response.json();
         //console.log("soy responce en fecht: ", data);

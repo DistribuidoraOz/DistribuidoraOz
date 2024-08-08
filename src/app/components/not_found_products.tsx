@@ -1,19 +1,24 @@
 import Image from "next/image";
 import img from "@/app/img/404.jpg"
+import { Button } from "../ui/button";
 import Link from "next/link";
 
 export default function Not_found(){
     return(
-        <div>
-            <h1>No se encontraron Productos!</h1>
-            <Image
-                className=""
-                src={img}
-                width={500}
-                height={500}
-                alt="not Found image"
-            />
-            <Link href={'/'}>Vuelva a intentarlo...</Link>
+        <div className="flex justify-center items-center min-h-screen">
+            <div className="flex flex-col justify-center items-center text-center p-4">
+                <h1 className="mb-8 text-black text-4xl">No se encontraron Productos!</h1>
+                <Image
+                    className="mb-4 rounded-md object-cover"
+                    src={img}
+                    width={500}
+                    height={500}
+                    alt="not Found image"
+                />
+                <Link className='no-underline' href={'/'}>
+                    <Button>Seguir buscando...</Button>
+                </Link>
+            </div>
         </div>
         
     )    

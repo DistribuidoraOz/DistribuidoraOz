@@ -19,12 +19,12 @@ export default async function SectionProductCard({list}:{list: cardData[]}){
           {list.map((item)=>{
           return(
             <div className="group relative" key={item.id}>
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none transform hover:scale-110 transition duration-500 ease-in-out lg:h-80">
+              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-none lg:aspect-none transform hover:scale-110 transition duration-500 ease-in-out lg:h-80">
                 <Image src={item.imagen}
                   alt="imagen del producto" 
-                  className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                  width={150}
-                   height={200}
+                  className="h-full w-full lg:h-full lg:w-full"
+                  width={500}
+                   height={500}
                 />
               </div>
               <div className="mt-4 flex justify-between">

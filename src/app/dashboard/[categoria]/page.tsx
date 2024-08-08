@@ -6,7 +6,8 @@ import { cardData } from "@/app/lib/definitions";
 
 export default async function Page({ params }: { params: {categoria:string} }){
 
-    const list: cardData[] = await findProductByCategoryId(params.categoria);
+    var list: cardData[] = [];
+    list = await findProductByCategoryId(params.categoria);
     
     return( 
       <>

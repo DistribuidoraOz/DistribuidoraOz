@@ -7,7 +7,8 @@ export default async function Page({ params }:
 { params: {marca:string}}
 ){
 
-    const cards:cardData[] = await findProductByMarcaId(params.marca);
+    var cards:cardData[] = [];
+    cards = await findProductByMarcaId(params.marca);
 
     return(
         <>

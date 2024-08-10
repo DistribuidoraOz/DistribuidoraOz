@@ -9,14 +9,14 @@ export async function findAllcategory(){
         const response = await fetch(`${basicUrl}/categorys`);
 
         if(!response.ok){
-            throw new Error('no se recuperaron datos')
+            throw new Error('no se recuperaron Categorias')
         }
         const data = await response.json();
         //console.log("soy responce en fecht findAllCategory: ", data);
 
         return data; 
     } catch (error) {
-        console.error('Ocurrio un error al recuperar los datos: ', error);
+        console.error('Ocurrio un error al recuperar categorias: ', error);
         return [];
     }   
 }
@@ -31,7 +31,7 @@ export async function findCategoryById(id: string) {
        const data = await response.json();
        return data;
     } catch (error) {
-        console.log("No se pudo recuperar categoria por nombre! ", error);
+        console.log("No se pudo recuperar categoria por id! ", error);
         
     }   
 }
@@ -60,14 +60,14 @@ export async function findMarcasByCategoria(id: string){
     try {
         const response = await fetch(`${basicUrl}/marcasByCategoryId/${id}`);
         if(!response.ok){
-            throw new Error('no se recuperaron datos')
+            throw new Error('no se recuperaron Marcas por categoriaId')
         }
         const data = await response.json();
-        //console.log("soy responce en fecht: ", data);
+        //console.log("soy responce en fecht : ", data);
 
         return data; 
     } catch (error) {
-        console.error('Ocurrio un error al recuperar los datos: ', error);
+        console.error('Ocurrio un error al recuperar Marcas por categoriaId: ', error);
         return [];
     }   
 }
@@ -95,11 +95,11 @@ export async function findProductByCategoryId(id: string){
     try {
         const response = await fetch(`${basicUrl}/productoByCategory/${id}`);
         if(!response.ok){
-            console.log('no se recuperaron productos por categoria');
+            console.log('no se recuperaron productos por categoriaId');
             return [];
         }
         const data = await response.json();
-        //console.log("soy responce en fecht: ", data);
+        //console.log("soy responce en fecht productByCategoryId: ", data);
         return data; 
 
     } catch (error) {

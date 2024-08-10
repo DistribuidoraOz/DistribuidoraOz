@@ -1,7 +1,7 @@
 'use client';
 
 import { useSession } from "next-auth/react"
-import { LogIn, LogOut } from "../ui/login/buttons";
+import { LogOut } from "../ui/login/buttons";
 import { useState } from 'react'
 import {
   Dialog,
@@ -18,8 +18,8 @@ import {
 import {
   Bars3Icon,
   XMarkIcon,
-} from '@heroicons/react/24/outline'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
+} from '@heroicons/react/24/outline';
+import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import Search from '../ui/search';
 import { optionField } from '../lib/definitions';
 import { listMap } from "../lib/tools";
@@ -37,12 +37,12 @@ export default function HeaderMenu({list}: {list: optionField[]}){
 
   
   return (
-    <header className=" bg-cover bg-center shadow-2xl bg-[url('https://res.cloudinary.com/dnnafr8ny/image/upload/v1721955493/4444_s108rc.jpg')]">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+    <header className="bg-cover bg-center shadow-2xl bg-[url('https://res.cloudinary.com/dnnafr8ny/image/upload/v1721955493/4444_s108rc.jpg')]">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between ms:px-8 lg:px-8 p-2" aria-label="Global">
         <div className="flex lg:flex-1">
-          <a href="/" className="-m-1.5 p-1.5">
+          <a href="/" className="">
             <span className="sr-only">Distribuidora Oz</span>
-            <img className="lg:justify-start h-28 w-auto" src='https://res.cloudinary.com/dnnafr8ny/image/upload/v1723060992/LOGO_DISTRIBUIDORA-ulti_qnuiet.png' alt="" />
+            <img className="h-28 w-full" src='https://res.cloudinary.com/dnnafr8ny/image/upload/v1723246681/LogoOz_ixcpzq.png' alt="" />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -75,13 +75,13 @@ export default function HeaderMenu({list}: {list: optionField[]}){
                   {newList.map((item) => (
                     <div
                       key={item.nombre}
-                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-orange-200"
+                      className="group relative flex items-center gap-x-6 rounded-lg p-2.5 text-sm leading-6 hover:bg-orange-200"
                     >
                       <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-fuchsia-200">
                         <item.icon className="h-6 w-6 bg-fuchsia-200 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                       </div>
                       <div className="flex-auto">
-                        <a href={item.href} className="block font-semibold text-gray-900">
+                        <a href={item.href} className="block font-semibold text-gray-900 no-underline">
                           {item.nombre}
                           <span className="absolute inset-0" />
                         </a>
@@ -114,9 +114,9 @@ export default function HeaderMenu({list}: {list: optionField[]}){
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Distribuidora Oz</span>
               <img
-                className="h-8 w-auto"
-                src='../img/logo.png'
-                alt=""
+                className="h-28 w-auto"
+                src='https://res.cloudinary.com/dnnafr8ny/image/upload/v1723246681/LogoOz_ixcpzq.png'
+                alt="Logo"
               />
             </a>
             <button

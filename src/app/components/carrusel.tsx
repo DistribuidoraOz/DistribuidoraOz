@@ -9,51 +9,51 @@ function Carrusel() {
   return (
     <Carousel>
       <Carousel.Item>
-        <img width={ancho} height={alto} src='https://res.cloudinary.com/dnnafr8ny/image/upload/v1721747308/WhatsApp_Image_2024-07-23_at_11.58.56_AM_wxoeaf.jpg' alt='' />
+        <img width={ancho} height={alto} src='https://res.cloudinary.com/dnnafr8ny/image/upload/v1722870193/baner_REGIONALES._OOZ_dnemia.jpg' alt='Banner' />
         <Carousel.Caption>
           <p>Productos artesanales de primera calidad.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img width={ancho} height={alto} src="https://res.cloudinary.com/dnnafr8ny/image/upload/v1721747303/WhatsApp_Image_2024-07-23_at_12.00.04_PM_in3gxo.jpg" alt='' />
+        <img width={ancho} height={alto} src="https://res.cloudinary.com/dnnafr8ny/image/upload/v1722870194/baner_BAZAR_OOZ_ckfmto.jpg" alt='banner' />
         <Carousel.Caption>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>Gran variedad en productos de Bazar.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img width={ancho} height={alto} src="https://res.cloudinary.com/dnnafr8ny/image/upload/v1721747303/WhatsApp_Image_2024-07-23_at_11.59.30_AM_itv1bk.jpg" alt="Third slide" />
+        <img width={ancho} height={alto} src="https://res.cloudinary.com/dnnafr8ny/image/upload/v1722870452/baner_REGALERIA_OOZ_gxhtie.jpg" alt="banner" />
         <Carousel.Caption>
-          <p>Praesent commodo cursus magn.</p>
+          <p>De todo para el regalo ideal.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img width={ancho} height={alto} src='https://res.cloudinary.com/dnnafr8ny/image/upload/v1721747303/WhatsApp_Image_2024-07-23_at_12.04.06_PM_dyh00m.jpg' alt='' />
+        <img width={ancho} height={alto} src='https://res.cloudinary.com/dnnafr8ny/image/upload/v1722870193/baner_playa_OOZ_levagx.jpg' alt='banner' />
         <Carousel.Caption>
-          <p>Productos playa de primera calidad.</p>
+          <p>Productos para playa, tenemos lo que buscas.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img width={ancho} height={alto} src='https://res.cloudinary.com/dnnafr8ny/image/upload/v1721747303/WhatsApp_Image_2024-07-23_at_12.01.52_PM_rk1h7u.jpg' alt='' />
+        <img width={ancho} height={alto} src='https://res.cloudinary.com/dnnafr8ny/image/upload/v1722870194/baner_VARIOS_OOZ_renggi.jpg' alt='banner' />
         <Carousel.Caption>
-          <p>Productos varios de primera calidad.</p>
+          <p>Producto de todo tipo.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img width={ancho} height={alto} src='https://res.cloudinary.com/dnnafr8ny/image/upload/v1721747303/WhatsApp_Image_2024-07-23_at_12.01.16_PM_fusxen.jpg' alt='' />
+        <img width={ancho} height={alto} src='https://res.cloudinary.com/dnnafr8ny/image/upload/v1722870193/baner_CAMPING_OOZ_t1jxh2.jpg' alt='banner' />
         <Carousel.Caption>
-          <p>Productos camping de primera calidad.</p>
+          <p>Praductos de camping para que tu dia sea inolvidable.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img width={ancho} height={alto} src='https://res.cloudinary.com/dnnafr8ny/image/upload/v1721747303/WhatsApp_Image_2024-07-23_at_12.00.36_PM_cdnmyj.jpg' alt='' />
+        <img width={ancho} height={alto} src='https://res.cloudinary.com/dnnafr8ny/image/upload/v1722870193/baner_libreria_OOZ_umezly.jpg' alt='banner' />
         <Carousel.Caption>
-          <p>Productos de libreria de primera calidad.</p>
+          <p>Articulos de libreria para el cole!</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img width={ancho} height={alto} src='https://res.cloudinary.com/dnnafr8ny/image/upload/v1721747303/WhatsApp_Image_2024-07-23_at_12.05.20_PM_pdhh1a.jpg' alt='' />
         <Carousel.Caption>
-          <p>Juguetes de primera calidad.</p>
+          <p>Variedad en juguetes para divertirse y aprender.</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

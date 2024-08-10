@@ -9,11 +9,11 @@ export default async function Home() {
   const session = await getServerSession();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-    <div className='size-3/4'>
-      <Carrusel/> 
-    </div>
-    <SectionMarcas/>
+    <main className="bg-gradient-to-r from-violet-300 via-rose-200 to-amber-200 flex min-h-screen flex-col items-center justify-between px-20 py-4">
+      <div className='w-screen sm:w-screen md:w-full lg:w-full'>
+        <Carrusel/> 
+      </div>
+      <SectionMarcas/>
       
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-3 lg:text-left">
         <a
@@ -29,7 +29,7 @@ export default async function Home() {
             </span>
           </h2>
           <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
+            Encuentre informacion de como ponerse en contacto con nosotros.
           </p>
         </a>
         <br/>
@@ -46,7 +46,7 @@ export default async function Home() {
             </span>
           </h2>
           <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
+            Encuentre nuestras sucursales y visitenos.
           </p>
         </a>
       </div>

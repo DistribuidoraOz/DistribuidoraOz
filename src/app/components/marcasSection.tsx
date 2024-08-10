@@ -2,84 +2,94 @@
 
 const people = [
     {
+      name:'duravit',
+      imageUrl:
+        'https://res.cloudinary.com/dnnafr8ny/image/upload/v1723040372/Duravit_Logo_wd1a5h.png'
+    },
+    {
+      name:'yuyu',
+      imageUrl:
+        'https://res.cloudinary.com/dnnafr8ny/image/upload/v1723040516/Yuyu_logo_NUEVO_mrbkqw.png'
+    },
+    {
       name: 'Rondi',
       imageUrl:
-        'https://res.cloudinary.com/dnnafr8ny/image/upload/v1721770226/Rondi_logo_j5kusv.jpg'
+        'https://res.cloudinary.com/dnnafr8ny/image/upload/v1723039708/Rondi_logo_NUEVO_lcfsnb.png'
     },
     {
         name: 'Tramontina',
         imageUrl:
-          'https://res.cloudinary.com/dnnafr8ny/image/upload/v1721769691/Tramontina._f8oibv.jpg'
+          'https://res.cloudinary.com/dnnafr8ny/image/upload/v1723039708/tramontina_logo_NUEVO_vrys1x.png'
     },
     {
         name: 'New Plast',
         imageUrl:
-            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1721770223/New_Plast_logo_uunytr.jpg'
+            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1723039713/New_Plast_logo_NUEVO_zvcflc.png'
     },
     {
         name: 'Jugar',
         imageUrl:
-            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1721770221/Jugar_logo_ptw2me.jpg'
+            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1723039707/Jugar_logo_NUEVO_qriudk.png'
     },
     {
         name: 'Biemme',
         imageUrl:
-            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1721770216/Biemme_logo_fwneyc.jpg'
+            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1723039713/Biemme_logo_NUEVO_g9kosu.png'
     },
     {
         name: 'Kukibet',
         imageUrl:
-            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1721770182/Kukibet_logo_ebphsp.jpg'
+            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1723039712/Kukibet_logo_NUEVO_hupwtx.png'
     },
     {
         name: 'Caprichito',
         imageUrl:
-            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1721770217/Caprichito_logo_fvrbxp.jpg'
+            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1723039715/Caprichito_logo_NUEVO_faos6b.png'
     },
     {
         name: 'Rigolleau',
         imageUrl:
-            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1721769738/Rigolleau_logo_xcmqus.jpg'
+            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1722989378/Rigolleau_logo_NEW_d5yn9g.png'
     },
     {
         name: 'Jovyfel',
         imageUrl:
-            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1721769738/Rigolleau_logo_xcmqus.jpg'
+            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1723039708/Jovife_logo_NUEVO_vf2ppj.png'
     },
     {
         name: 'Crom',
         imageUrl:
-            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1721769634/Crom_logo_wpywra.jpg'
+            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1723040287/Crom_logo_NUEVO_qcb5m4.png'
     },
     {
         name: 'Opening',
         imageUrl:
-            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1721769661/Opening_logo_wvnxvh.jpg'
+            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1723039903/Opening_logo_NUEVO_khnztc.png'
     },
     {
         name: 'Nuva',
         imageUrl:
-          'https://res.cloudinary.com/dnnafr8ny/image/upload/v1721957780/jajajja_kqpnpx.jpg'
+          'https://res.cloudinary.com/dnnafr8ny/image/upload/v1723039713/Nuva_logo_NUEVO_dvasg4.png'
     },
     {
         name: 'Atom',
         imageUrl:
-            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1721769656/Atom_logo_tlwvfv.jpg'
+            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1723039708/Atom_logo_NUEVO_olmb91.png'
     },
     {
         name: 'Club',
         imageUrl:
-            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1721769656/Club_Import_logo_q9l5qn.jpg'
+            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1723039712/Club_Import_logo_NUEVO_nbvim7.png'
     },
     {
         name: 'Caresse',
         imageUrl:
-            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1721769652/Caresse_logo_q7grwh.jpg'
+            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1723039708/Caresse_logo_NUEVO_b7u4id.png'
     },
     {
         name: 'Carol',
         imageUrl:
-            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1721769651/Carol_logo_utnlbv.jpg'
+            'https://res.cloudinary.com/dnnafr8ny/image/upload/v1723039385/Carol_logo_NUEVO_zpte7a.png'
     },
     // More people...
   ]

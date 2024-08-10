@@ -9,13 +9,13 @@ export default async function Page({ params }: { params: {categoria:string} }){
     const list: cardData[] = await findProductByCategoryId(params.categoria);
     
     return( 
-      <>
+      <div className="h-auto bg-gradient-to-r from-violet-300 via-rose-200 to-amber-200 p-6 md:p-12">
         {
           list.length <= 0 ?
           <Not_found/> :
           <SectionProductCard list={list} />
         }
        
-      </>
+      </div>
     )
 }

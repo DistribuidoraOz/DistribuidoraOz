@@ -10,12 +10,12 @@ export default async function Page({ params }:
     const cards:cardData[] = await findProductByMarcaId(params.marca);
 
     return(
-        <>
+        <div className="h-auto bg-gradient-to-r from-violet-300 via-rose-200 to-amber-200 p-6 md:p-12">
         {
           cards.length > 0 ? 
           <SectionProductCard list={cards}/> :
           <Not_found/>
         }
-        </>
+        </div>
     )
 }

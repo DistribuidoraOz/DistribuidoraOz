@@ -6,25 +6,27 @@ import { signIn, signOut } from 'next-auth/react';
 
 export function LogIn() {
     return (
-      <button 
+      <Link 
+        href='/'
         className="rounded-md border p-2 hover:bg-gray-100"
         onClick={()=>{
         signIn('github');
       }}>
         <LockOpenIcon className="w-5"/>
-      </button>
+      </Link>
     );
 }
   
 export function LogOut() {
     
     return (
-      <button 
-        className=" absolute bottom-2 left-2 rounded-md border p-2 hover:bg-gray-100"
+      <Link 
+        href='/'
+        className="rounded-md border p-2 hover:bg-gray-100"
         onClick={()=>{
         signOut({redirect: true});
       }}>
           <PowerIcon className="w-5" />
-      </button>
+      </Link>
     );
 }

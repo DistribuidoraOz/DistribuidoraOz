@@ -2,6 +2,7 @@ import Image from "next/image";
 import { cardData } from "../lib/definitions";
 import { Delete, Update } from "../ui/product/buttons";
 import { getServerSession } from "next-auth";
+import { Consultar } from "./whatsapp";
 
 
 
@@ -27,19 +28,22 @@ export default async function SectionProductCard({list}:{list: cardData[]}){
                    height={500}
                 />
               </div>
-              <div className="mt-4 flex justify-between">
+              <div className="mt-4 flex justify-between mb-5">
                 <div>
                   <h1 className="font-bold">{item.nombre}</h1>
                   <p className="font-medium">{item.descripcion}</p>
                 </div>
               </div>
+              <div className="absolute bottom-0 right-0 ">
               { session ?
-                <div className='absolute bottom-2 right-2 flex space-x-2'>
+                <div className='flex space-x-2'>
                   <Update id={item.id}/>
                   <Delete id={item.id}/>
                 </div>
-                : <></>
+                :
+                <Consultar nombre={item.nombre} descripcion={item.descripcion}/>
               }
+              </div>
             </div>)})}
         </div>
       </div>

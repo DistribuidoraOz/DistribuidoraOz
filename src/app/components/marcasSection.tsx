@@ -95,16 +95,16 @@ const people = [
   ]
 export default function SectionMarcas(){
     return (
-      <div className="bg-none py-24 sm:py-32">
+      <div className="bg-none py-20 sm:py-20">
         <div className="max-w-2xl text-center mb-10">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Trabajamos con las siguientes marcas:</h2>    
         </div>
         <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-2">
-          <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-4 sm:gap-y-16 xl:col-span-2">
+          <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-4 sm:gap-y-16 md:grid-cols-5  xl:col-span-2">
             {people.map((person) => (
               <li key={person.name}>
-                <div className="flex items-end gap-x-6">
-                  <img alt="" src={person.imageUrl} className="h-25 w-40 rounded-md" />
+                <div className="flex items-center gap-x-6">
+                  <img alt="Logos de marcas" src={person.imageUrl} className="bg-center h-25 w-40 rounded-md" />
                 </div>
               </li>
             ))}

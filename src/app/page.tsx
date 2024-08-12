@@ -9,8 +9,8 @@ export default async function Home() {
   const session = await getServerSession();
 
   return (
-    <main className="bg-gradient-to-r from-violet-300 via-rose-200 to-amber-200 flex min-h-screen flex-col items-center justify-between px-20 py-4">
-      <div className='w-screen sm:w-screen md:w-full lg:w-full'>
+    <main className="bg-gradient-to-r from-violet-300 via-rose-200 to-amber-200 flex min-h-screen flex-col items-center justify-between px-10 py-4">
+      <div className='w-screen sm:w-screen md:w-5/6 xl:w-5/6'>
         <Carrusel/> 
       </div>
       <SectionMarcas/>

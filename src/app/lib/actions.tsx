@@ -100,4 +100,20 @@ export async function deleteProduct(id:string) {
     } catch (error) {
         return {message: "Error al eliminar producto."}
     }
-} 
+}
+
+export async function searchProduct(query:string){
+    try {
+        const response = await fetch(`${url_base}/searchProduct?name=${query}`);
+        if(!response.ok){
+            console.log("no se encontraron productos con esta busqueda!");
+            return [];
+        }else{
+            const data = response.json();
+            return data;
+        } 
+    } catch (error) {
+        console.log("error al buscar productos: ", error);
+        return {message: 'Error al buscar productos!'}
+    }    
+}

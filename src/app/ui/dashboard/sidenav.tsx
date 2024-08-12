@@ -15,13 +15,13 @@ export default async function SideNav({ id }: { id:string }) {
   const session = await getServerSession();
 
   return (
-    <div className="flex h-full flex-col px-3 py-4 md:px-2 bg-purple-200">
+    <div className="overflow-hidden hover:overflow-x-auto flex h-full flex-col px-3 py-4 md:px-2 bg-purple-200 md:overflow-y-auto">
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
         <Suspense fallback={<CardSkeleton/>}>
           <NavLinks list={marcas} ruta={id}/>
         </Suspense>
-        <div className="hidden h-8 w-auto grow rounded-md bg-purple-200 md:block"></div>
-        <div className='relative bottom-2 right-2 flex space-x-2'>
+        <div className="hidden h-8 w-auto grow rounded-md bg-none md:block"></div>
+        <div className='relative flex space-x-2'>
           { session ? 
             <>
               <AddProduct id={id}/>

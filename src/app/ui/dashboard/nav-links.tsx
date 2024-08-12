@@ -33,8 +33,8 @@ export default function NavLinks({ list, ruta }:{list: optionField[], ruta:strin
               }
             )}
           >
-            <LinkIcon className="w-6" />
-            <p className="hidden md:block">{link.nombre}</p>
+            <LinkIcon className="w-6 hidden sm:block" />
+            <p>{link.nombre}</p>
           </Link>
         );
       })}

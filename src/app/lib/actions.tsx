@@ -1,6 +1,6 @@
 "use server";
 
-import { z } from 'zod';
+import { boolean, z } from 'zod';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
@@ -52,7 +52,6 @@ export async function createProduct(formData: FormData){
             method: 'POST', 
             body: formData,
         });
-        alert('Producto creado co exito!');
     } catch (error) {
         return{
             message: 'Error al crear nuevo producto! Fallo en la Base de datos.'
@@ -88,7 +87,6 @@ export async function updateProduct(id: string, formData: FormData) {
   }
 
 export async function deleteProduct(id:string) {
-
     try {
         const res = await fetch(`${url_base}/deleteProduct/${id}`,{
             method: 'DELETE'
@@ -97,7 +95,6 @@ export async function deleteProduct(id:string) {
             console.log("Delete button fail!!!");
             return {message: "Error al eliminar producto! Falla en la base de datos."}
         }
-        alert('Producto eliminado con exito!');
         redirect('/');
     } catch (error) {
         return {message: "Error al eliminar producto."}

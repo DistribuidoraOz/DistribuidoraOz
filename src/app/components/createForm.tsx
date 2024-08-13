@@ -59,27 +59,27 @@ export default function CreateForm({ marcas, categoriaId }: { marcas: optionFiel
       formData.set('imagen', imagen); 
 
     const response = await createProduct(formData);
-    alert(response.message)
+    if(response) alert(response.message);
   }
 
   return (
-    <div className='md:container md:mx-auto p-20'>
+    <div className='p-2.5 w-5/6 sm:w-5/6 md:w-4/6 border-2 border-blue-400 rounded-lg bg-teal-100'>
     <form method='post' onSubmit={HandleSubmit}>
-      <div className="space-y-12">
-        <div className="border-b border-gray-900/10 pb-12">
+      <div className="space-y-4">
+        <div className="border-b border-blue-400 pb-8">
           <h2 className="text-base font-semibold leading-7 text-gray-900">Crear Nuevo Producto</h2>
           <p className="mt-1 text-sm leading-6 text-gray-600">
             Todos los campos son obligatorios, no deje ninguno sin completar.
           </p>
           <br/>
           <ImputListName list={marcas} label='marca' />
-          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-6">
             <div className="sm:col-span-4">
               <label htmlFor="nombre" className="block text-sm font-medium leading-6 text-gray-900">
                 Nombre del producto:
               </label>
               <div className="mt-2">
-                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-blue-400 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                   <input
                     type="text"
                     name="nombre"
@@ -102,7 +102,7 @@ export default function CreateForm({ marcas, categoriaId }: { marcas: optionFiel
                   id="descripcion"
                   name="descripcion"
                   rows={3}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full bg-transparent rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-blue-400 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   defaultValue={''}
                   onChange={onChange}
                 />
@@ -114,14 +114,14 @@ export default function CreateForm({ marcas, categoriaId }: { marcas: optionFiel
               <label htmlFor="product-photo" className="block text-sm font-medium leading-6 text-gray-900">
                 Imagen del producto:
               </label>
-              <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+              <div className="mt-2 flex justify-center rounded-lg border border-dashed border-blue-400 px-6 py-10">
                 <div className="text-center">
                   {imgScr ? <Image width={500} height={200} src={imgScr} alt='' className='max-w-fit max-h-fit'/> : 
                   <PhotoIcon className="mx-auto h-12 w-12 text-gray-300" aria-hidden="true" />}
                   <div className="mt-4 flex text-sm leading-6 text-gray-600">
                     <label
                       htmlFor="imagen"
-                      className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                      className="relative cursor-pointer rounded-md bg-transparent font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                     >
                       <span >Subir Imagen</span>
                       <input id="imagen" name="imagen" type="file" className="sr-only" onChange={onChange}/>
@@ -137,7 +137,7 @@ export default function CreateForm({ marcas, categoriaId }: { marcas: optionFiel
 
       <div className="mt-6 flex items-center justify-end gap-x-6">
         <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
-          Cancelar
+          <a href='/'>Cancelar</a>
         </button>
         <button
           type="submit"

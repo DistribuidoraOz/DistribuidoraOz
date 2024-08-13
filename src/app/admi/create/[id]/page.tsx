@@ -10,7 +10,7 @@ export default async function Page({params}: {params: {id:string}}) {
     const marcas = await findMarcasByCategoria(params.id);
 
     return(
-        <div className="bg-teal-100">
+        <div className="bg-teal-300 py-4 sm:p-6 md:p-12">
             {
                 session ?
                 <CreateForm marcas={marcas} categoriaId={params.id}/> :

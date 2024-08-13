@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { createProduct } from '../lib/actions';
 
 
+
 export default function CreateForm({ marcas, categoriaId }: { marcas: optionField[], categoriaId: string })
 {
   
@@ -57,7 +58,8 @@ export default function CreateForm({ marcas, categoriaId }: { marcas: optionFiel
     if(imagen)
       formData.set('imagen', imagen); 
 
-    createProduct(formData);
+    const response = await createProduct(formData);
+    alert(response.message)
   }
 
   return (

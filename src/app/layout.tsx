@@ -10,8 +10,8 @@ import Provider from "./context/provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ventas Varias",
-  description: "Pagina para comprar de todo!",
+  title: "Distribuidora Oz",
+  description: "Pagina oficial de Distribuidora Oz!",
 };
 
 

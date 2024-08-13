@@ -174,6 +174,7 @@ export default function HeaderMenu({list}: {list: optionField[]}){
                 >
                   Contactos
                 </a>
+                <Search placeholder="Buscar..."/>
               </div>
               <div className="py-6">
                 { status === "authenticated" ? <LogOut/> : <></> }

@@ -39,7 +39,7 @@ export async function createProduct(formData: FormData){
         console.log("fallo la creacion del nuevo producto!")
         return {
           errors: validatedFields.error.flatten().fieldErrors,
-          message: 'Faltan campos en el formulario. Error al crear producto.',
+          message: 'Error al crear producto! Faltan campos en el formulario.',
         };
     }
     const {
@@ -51,10 +51,11 @@ export async function createProduct(formData: FormData){
         const response = await fetch(`${url_base}/newProduct`, { 
             method: 'POST', 
             body: formData,
-          });    
+        });
+        alert('Producto creado co exito!');
     } catch (error) {
         return{
-            message: 'Fallo en Base de datos: Error al crear nuevo producto.'
+            message: 'Error al crear nuevo producto! Fallo en la Base de datos.'
         };
     }
     revalidatePath(`/dashboard/${categoriaId}/${marcaId}`);
@@ -94,8 +95,9 @@ export async function deleteProduct(id:string) {
         });
         if(!res.ok){
             console.log("Delete button fail!!!");
-            return {message: "No se pudo eliminar producto, falla en la base de datos."}
+            return {message: "Error al eliminar producto! Falla en la base de datos."}
         }
+        alert('Producto eliminado con exito!');
         redirect('/');
     } catch (error) {
         return {message: "Error al eliminar producto."}

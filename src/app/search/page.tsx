@@ -1,7 +1,7 @@
 
 import { searchProduct } from "../lib/actions";
 import SectionProductCard from "../components/sectionProductCard";
-import Not_found from "../components/not_found_products";
+import Not_found from "../components/not_found";
 import { cardData } from "../lib/definitions";
 
 export default async function Page({searchParams}:{
@@ -15,7 +15,7 @@ export default async function Page({searchParams}:{
         <div className="h-auto bg-gradient-to-r from-violet-300 via-rose-200 to-amber-200 p-6 md:p-12">
             {
                 result.length <= 0 ?
-                <Not_found /> :
+                <Not_found texto="No se encontraron productos!"/> :
                 <SectionProductCard list={result} />
             }            
         </div>

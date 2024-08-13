@@ -1,6 +1,6 @@
 import SectionProductCard from "@/app/components/sectionProductCard";
 import { findProductByMarcaId } from "@/app/consult/fetching";
-import Not_found from "@/app/components/not_found_products";
+import Not_found from "@/app/components/not_found";
 import { cardData } from "@/app/lib/definitions";
 
 export default async function Page({ params }:
@@ -14,7 +14,7 @@ export default async function Page({ params }:
         {
           cards.length > 0 ? 
           <SectionProductCard list={cards}/> :
-          <Not_found/>
+          <Not_found texto="No se encontraron productos!"/>
         }
         </div>
     )

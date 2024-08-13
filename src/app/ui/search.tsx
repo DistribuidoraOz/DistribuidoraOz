@@ -24,13 +24,13 @@ export default function Search({ placeholder }: { placeholder: string }) {
     push(`/search?${params.toString()}`);
   }, 1000);
   return (
-    <div className='w-1/2'>
+    <div className='sm:w-4/5 md:w-1/2'>
     <div className="relative flex flex-1 flex-shrink-0">
       <label htmlFor="search" className="sr-only">
         Search
       </label>
       <input
-        className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+        className="sm:w-4/5 peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
         placeholder={placeholder}
         onChange={(e)=>{handleSearch(e.target.value);}}
         defaultValue={searchParams.get('name')?.toString()}

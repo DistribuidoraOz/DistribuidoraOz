@@ -4,7 +4,7 @@ import { boolean, z } from 'zod';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
-const url_base:string = 'http://localhost:4000'; // process.env.URL_API!;
+const url_base:string = process.env.URL_API!;  
 
 const createProductSchema = z.object({
     nombre: z.string().min(3, {message: "nombre debe tener un minimo de 3 caracteres."}),

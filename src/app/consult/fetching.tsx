@@ -1,7 +1,7 @@
 
 import { unstable_noStore as noStore } from 'next/cache';
 
-const basicUrl: string = 'http://localhost:4000'; //process.env.URL_API!;
+const basicUrl: string = process.env.URL_API!;
 
 export async function findAllcategory(){
     noStore();

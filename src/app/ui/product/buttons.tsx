@@ -7,7 +7,7 @@ import { deleteProduct } from "@/app/lib/actions";
 export function Update({ id }: { id: string }) {
     return (
       <Link
-        href={``}
+        href={`/admi/edit/${id}`}
         className="rounded-md border p-2 hover:bg-gray-100"
       >
         <PencilIcon className="w-5" />

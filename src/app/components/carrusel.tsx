@@ -52,7 +52,7 @@ function Carrusel() {
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <Image className='w-full' width={ancho} height={alto} src='https://res.cloudinary.com/dnnafr8ny/image/upload/v1721747303/WhatsApp_Image_2024-07-23_at_12.05.20_PM_pdhh1a.jpg' alt='' />
+        <Image className='w-full' width={ancho} height={alto} src='https://res.cloudinary.com/dnnafr8ny/image/upload/v1722870194/baner_JUGUETERIA_OOZ_nyhd5m.jpg' alt='banner' />
         <Carousel.Caption>
           <p className='hidden md:block'>Variedad en juguetes para divertirse y aprender.</p>
         </Carousel.Caption>

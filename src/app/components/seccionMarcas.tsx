@@ -1,6 +1,11 @@
 
 
-const people = [
+interface marca {
+    name: string;
+    imageUrl: string;
+}
+
+const marcas:marca[] = [
     {
       name:'duravit',
       imageUrl:
@@ -93,23 +98,29 @@ const people = [
     },
     // More people...
   ]
-export default function SectionMarcas(){
+
+
+export default function SeccionMarcas() {
     return (
-      <div className="bg-none py-20 sm:py-20">
-        <div className="max-w-2xl text-center mb-10">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Trabajamos con las siguientes marcas:</h2>    
-        </div>
-        <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-2">
-          <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-4 sm:gap-y-16 md:grid-cols-5  xl:col-span-2">
-            {people.map((person) => (
-              <li key={person.name}>
-                <div className="flex items-center gap-x-6">
-                  <img alt="Logos de marcas" src={person.imageUrl} className="bg-center h-25 w-40 rounded-md" />
-                </div>
-              </li>
+      <div className="bg-none py-6 sm:py-8">
+        <div className="mx-auto max-w-7xl px-0 lg:px-6">
+          <h2 className="text-center text-lg font-semibold leading-8 text-gray-900">
+            Contamos con gran variedad de productos.
+            Trabajamos con las siguientes marcas:
+          </h2>
+          <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+            {marcas.map((item)=>(
+              <img
+                alt="Statamic"
+                src={item.imageUrl}
+                width={158}
+                height={48}
+                className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+              />
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     )
-} 
+  }
+  

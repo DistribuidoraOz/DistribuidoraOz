@@ -4,7 +4,7 @@ import { boolean, z } from 'zod';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
-const url_base:string = process.env.URL_API!;
+const url_base:string = 'http://localhost:4000'; // process.env.URL_API!;
 
 const createProductSchema = z.object({
     nombre: z.string().min(3, {message: "nombre debe tener un minimo de 3 caracteres."}),
@@ -12,6 +12,14 @@ const createProductSchema = z.object({
     categoriaId: z.string().uuid({message: "No se ingreso categoria."}),
     marcaId: z.string().uuid({message: "Debe seleccionar una marca."}),
     imagen: z.instanceof(File, {message: "Debe agregar una imagen."})
+});
+const editProductSchema = z.object({
+    id: z.string().uuid({message: 'no de recibio el id.'}),
+    nombre: z.string().min(3, {message: "nombre debe tener un minimo de 3 caracteres."}),
+    descripcion: z.string({message: "Debe agragar una descripcion."}),
+    categoriaId: z.string().uuid({message: "No se ingreso categoria."}),
+    marcaId: z.string().uuid({message: "Debe seleccionar una marca."}),
+    imagen: z.instanceof(File, {message: "Debe agregar una imagen."}).optional()
 });
 
 
@@ -61,29 +69,37 @@ export async function createProduct(formData: FormData){
     redirect(`/dashboard/${categoriaId}/${marcaId}`);
 }
 
-export async function updateProduct(id: string, formData: FormData) {
-    {/*
-    const { customerId, amount, status } = UpdateInvoice.parse({
-        customerId: formData.get('customerId'),
-        amount: formData.get('amount'),
-        status: formData.get('status'),
-      });
-     
-      const amountInCents = amount * 100;
-    try { 
-        await sql`
-            UPDATE invoices
-            SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status}
-            WHERE id = ${id}
-        `;
-    } catch (error) {
-        return{
-            message: 'Database Error: Failed to Update Invoice.'
-        };
+export async function updateProduct(formData: FormData) {
+    const validatedFields = editProductSchema.safeParse({
+        id: formData.get('id'),
+        nombre: formData.get('nombre'),
+        descripcion: formData.get('descripcion'),
+        categoriaId: formData.get('categoriaId'),
+        marcaId: formData.get('marcaId'),
+    });
+    if(!validatedFields.success){
+        return {
+            errors: validatedFields.error.flatten().fieldErrors,
+            message: 'Error al editar producto! Faltan campos en el formulario.',
+          };
     }
-    revalidatePath('/dashboard/invoices');
-    redirect('/dashboard/invoices');
-    */}
+    const {
+        categoriaId,
+        marcaId,
+    } = validatedFields.data;
+    try {
+        const response = await fetch(`${url_base}/editProducto`,{
+            method: 'PUT',
+            body: formData,
+        })
+        console.log("soy updateProduc[[[[[[[ Response ", response);
+
+    } catch (error) {
+        return {message: 'Error en updateProduct'}
+    }
+
+    revalidatePath(`/dashboard/${categoriaId}/${marcaId}`);
+    redirect(`/dashboard/${categoriaId}/${marcaId}`);
   }
 
 export async function deleteProduct(id:string) {

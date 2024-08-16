@@ -1,7 +1,7 @@
 
 import { unstable_noStore as noStore } from 'next/cache';
 
-const basicUrl: string = process.env.URL_API!;
+const basicUrl: string = 'http://localhost:4000'; //process.env.URL_API!;
 
 export async function findAllcategory(){
     noStore();
@@ -63,7 +63,7 @@ export async function findMarcasByCategoria(id: string){
             throw new Error('no se recuperaron Marcas por categoriaId')
         }
         const data = await response.json();
-        //console.log("soy responce en fecht : ", data);
+        //console.log("soy responce en fecht marcasbycategoru: ", data);
 
         return data; 
     } catch (error) {
@@ -105,5 +105,21 @@ export async function findProductByCategoryId(id: string){
     } catch (error) {
         console.error('Ocurrio un error al recuperar los productos x categoria: ', error);
         return [];
+    }   
+}
+
+export async function findProductoById(id: string) {
+    noStore();
+    try {
+       const response = await fetch(`${basicUrl}/producto/${id}`);
+       if(!response.ok){
+        console.log("No se encontro ningun producto por id!");
+        return null;
+       }
+       const data = await response.json();
+       return data;
+    } catch (error) {
+        console.log("No se pudo recuperar producto por id! ", error);
+        return {message: 'Error al recuperar producto por id'};
     }   
 }

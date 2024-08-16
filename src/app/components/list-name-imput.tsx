@@ -1,10 +1,10 @@
 import { ListBulletIcon } from "@heroicons/react/24/outline";
 import { optionField } from "../lib/definitions";
 
-export function ImputListName({ list, label }: 
-  {list: optionField[], label:string }){
+export function ImputListName({ list, label, defValue }: 
+  {list: optionField[], label:string, defValue?:string }){
     var error:[] = [];
-    
+    var valor = defValue || '';
     return (
       <div className="mb-4">
         <label htmlFor={label} className="mb-2 block text-sm font-medium">
@@ -15,7 +15,7 @@ export function ImputListName({ list, label }:
             id={label}
             name={`${label}Id`}
             className="peer block bg-transparent w-full cursor-pointer rounded-md border border-blue-400 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
-            defaultValue=""
+            defaultValue={defValue}
             aria-describedby={`${label}-error`}
           >
             <option value="" disabled>

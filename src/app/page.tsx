@@ -2,18 +2,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Carrusel from "./components/carrusel";
 import { LogIn, LogOut } from './ui/login/buttons';
 import { getServerSession } from 'next-auth';
-import SectionMarcas from './components/marcasSection';
+import SeccionMarcas from './components/seccionMarcas';
 
 export default async function Home() {
 
   const session = await getServerSession();
 
   return (
-    <main className="bg-gradient-to-r from-violet-300 via-rose-200 to-amber-200 flex min-h-screen flex-col items-center justify-between px-10 py-4">
+    <main className="bg-gradient-to-r from-violet-300 via-rose-200 to-amber-200 flex min-h-screen flex-col items-center justify-between px-2 py-4">
       <div className='w-screen sm:w-screen md:w-5/6 xl:w-5/6'>
         <Carrusel/> 
       </div>
-      <SectionMarcas/>
+     <SeccionMarcas/>
       
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-3 lg:text-left">
         <a

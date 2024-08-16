@@ -15,6 +15,25 @@ export type dataForm = {
   imagen: File | null;
 };
 
+export type editDataForm = {
+  id:string;
+  CategoriaId: string;
+  MarcaId: string;
+  nombre: string;
+  descripcion: string;
+  imagen?: File | null;
+  imgUrl?:string;
+};
+
+export type fetchProduct = {
+  id:string;
+  CategoriaId: string;
+  MarcaId: string;
+  nombre: string;
+  descripcion: string;
+  imagen: string;
+}
+
 export type cardData = {
   id: string;
   nombre: string;

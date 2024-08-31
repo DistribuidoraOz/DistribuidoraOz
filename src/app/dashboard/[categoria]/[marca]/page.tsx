@@ -1,4 +1,4 @@
-import SectionProductCard from "@/app/components/sectionProductCard";
+import SectionProductCard from "@/app/ui/product/sectionProductCard";
 import { findProductByMarcaId } from "@/app/consult/fetching";
 import Not_found from "@/app/components/not_found";
 import { cardData } from "@/app/lib/definitions";

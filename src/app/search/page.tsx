@@ -1,6 +1,6 @@
 
 import { searchProduct } from "../lib/actions";
-import SectionProductCard from "../components/sectionProductCard";
+import SectionProductCard from "@/app/ui/product/sectionProductCard";
 import Not_found from "../components/not_found";
 import { cardData } from "../lib/definitions";
 

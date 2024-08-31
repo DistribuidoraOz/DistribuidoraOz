@@ -35,16 +35,14 @@ export default async function SectionProductCard({list}:{list: cardData[]}){
                 </div>
               </div>
               <div className="absolute flex bottom-0 right-0 space-x-2">
-              <Update id={item.id}/>
-              <Delete id={item.id} />
-              {/* session ?
+              { session ?
                 <div className='flex space-x-2'>
                   <Update id={item.id}/>
                   <Delete id={item.id}/>
                 </div>
                 :
                 <Consultar nombre={item.nombre} descripcion={item.descripcion}/>
-              */}
+              }
               </div>
             </div>)})}
         </div>

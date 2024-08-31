@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Carrusel from "./components/carrusel";
+import Carrusel from "./ui/home/carrusel";
 import { LogIn, LogOut } from './ui/login/buttons';
 import { getServerSession } from 'next-auth';
-import SeccionMarcas from './components/seccionMarcas';
+import SeccionMarcas from './ui/home/seccionMarcas';
 
 export default async function Home() {
 

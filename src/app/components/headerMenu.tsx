@@ -96,7 +96,7 @@ export default function HeaderMenu({list}: {list: optionField[]}){
           <a href="/" className="text-sm font-semibold leading-6 text-gray-900 no-underline">
             Inicio
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900 no-underline">
+          <a href="/nosotros" className="text-sm font-semibold leading-6 text-gray-900 no-underline">
             Nosotros
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900 no-underline">
@@ -163,7 +163,7 @@ export default function HeaderMenu({list}: {list: optionField[]}){
                   Inicio
                 </a>
                 <a
-                  href='#'
+                  href='/nosotros'
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-cyan-50 no-underline"
                 >
                   Nosotros

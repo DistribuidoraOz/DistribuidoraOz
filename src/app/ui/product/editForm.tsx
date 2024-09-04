@@ -1,11 +1,10 @@
 "use client";
 
-import { PhotoIcon } from '@heroicons/react/24/solid';
 import { editDataForm, fetchProduct, optionField } from '@/app/lib/definitions';
-import { ImputListName } from './list-name-imput';
+import { ImputListName } from '../../components/list-name-imput';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { updateProduct } from '../lib/actions';
+import { updateProduct } from '../../lib/actions';
 
 
 
@@ -62,10 +61,13 @@ export default function EditForm({ marcas, producto }: { marcas: optionField[], 
     }else{
       if(imgUrl) formData.set('imagen', imgUrl);
     }
-      
-    const response = await updateProduct(formData);
-    //if(response) alert(response.message);
-    console.log("handlesubmit editFrom:::::: ", response);
+    var response;
+    if(window.confirm('Confrmar cambios!')){
+      response = await updateProduct(formData);
+    }
+    response != null ? 
+      alert(response.message) :
+      alert('Cambios realizados!');
   }
   return (
     <div className='p-2.5 w-5/6 sm:w-5/6 md:w-4/6 border-2 border-blue-400 rounded-lg bg-teal-100'>
@@ -143,13 +145,13 @@ export default function EditForm({ marcas, producto }: { marcas: optionField[], 
 
       <div className="mt-6 flex items-center justify-end gap-x-6">
         <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
-          <a href='/'>Cancelar</a>
+          <a href={`/dashboard/${producto.CategoriaId}`}>Cancelar</a>
         </button>
         <button
           type="submit"
           className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
-          Subir
+          Editar
         </button>
       </div>
     </form>

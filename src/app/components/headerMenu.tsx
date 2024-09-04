@@ -23,6 +23,7 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import Search from '../ui/search';
 import { optionField } from '../lib/definitions';
 import { listMap } from "../lib/tools";
+import { LinkDeletCategory, AddCategory } from "../ui/categoria/buttons";
 
 function classNames(...classes: (string | false | null | undefined)[]): string {
   return classes.filter(Boolean).join(' ');
@@ -33,9 +34,7 @@ export default function HeaderMenu({list}: {list: optionField[]}){
   const { data: session, status } = useSession();
 
   const newList = listMap(list);
-  //console.log("soy newList en headermenu: ", newList);
 
-  
   return (
     <header className="bg-cover bg-center shadow-2xl bg-[url('https://res.cloudinary.com/dnnafr8ny/image/upload/v1721955493/4444_s108rc.jpg')]">
       <nav className="mx-auto flex max-w-6xl items-center justify-between ms:px-8 lg:px-8 p-2" aria-label="Global">
@@ -85,11 +84,16 @@ export default function HeaderMenu({list}: {list: optionField[]}){
                           {item.nombre}
                           <span className="absolute inset-0" />
                         </a>
-                        {/*<p className="mt-1 text-gray-600">{item.description}</p>*/}
                       </div>
                     </div>
                   ))}
                 </div>
+                { status === "authenticated" ? 
+                <div className="grid grid-cols-2 divide-x divide-fuchsia-500 bg-fuchsia-200">
+                <LinkDeletCategory/>
+                <AddCategory/>
+                </div> 
+                : <></> }
               </PopoverPanel>
             </Transition>
         </Popover>
@@ -176,9 +180,13 @@ export default function HeaderMenu({list}: {list: optionField[]}){
                 </a>
                 <Search placeholder="Buscar..."/>
               </div>
-              <div className="py-6">
-                { status === "authenticated" ? <LogOut/> : <></> }
-              </div>
+              { status === "authenticated" ? 
+                <div className="grid grid-cols-3 divide-x divide-fuchsia-500 bg-fuchsia-200 rounded-lg">
+                <LinkDeletCategory/>
+                <AddCategory/>
+                <LogOut/>
+                </div> 
+              : <></> }
             </div>
           </div>
         </DialogPanel>

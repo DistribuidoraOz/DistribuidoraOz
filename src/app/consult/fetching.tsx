@@ -32,7 +32,7 @@ export async function findCategoryById(id: string) {
        return data;
     } catch (error) {
         console.log("No se pudo recuperar categoria por id! ", error);
-        
+        return {message: 'Error al buscar categoria por id.'};
     }   
 }
 
@@ -42,25 +42,24 @@ export async function findAllMarcas() {
         const response = await fetch(`${basicUrl}/marcas`);
         if(!response.ok){
             console.log("No se recuperaron todas las marcas, response no ok!");
-            return null;
+            return [];
         }
         const data = await response.json()
-        console.log("Se recuperaron todas las marcas!!!!!");
         return data;
 
     } catch (error) {
         console.log("ERROR al recuperar todas las marcas!");  
-        
+        return [];
     }
 }
 
 export async function findMarcasByCategoria(id: string){
     noStore();
-
     try {
         const response = await fetch(`${basicUrl}/marcasByCategoryId/${id}`);
         if(!response.ok){
-            throw new Error('no se recuperaron Marcas por categoriaId')
+            console.log('No se recuperaron Marcas por categoriaId');
+            return [];
         }
         const data = await response.json();
         //console.log("soy responce en fecht marcasbycategoru: ", data);
@@ -117,6 +116,7 @@ export async function findProductoById(id: string) {
         return null;
        }
        const data = await response.json();
+       //console.log("FindProductById---- data: ", data)
        return data;
     } catch (error) {
         console.log("No se pudo recuperar producto por id! ", error);

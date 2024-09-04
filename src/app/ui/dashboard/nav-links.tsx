@@ -6,10 +6,6 @@ import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import { optionField } from '@/app/lib/definitions';
 
-// Map of links to display in the side navigation.
-// Depending on the size of the application, this would be stored in a database.
-
-
 export default function NavLinks({ list, ruta }:{list: optionField[], ruta:string}) {
   const pathname: string = usePathname();
 
@@ -23,6 +19,7 @@ export default function NavLinks({ list, ruta }:{list: optionField[], ruta:strin
       {newList.map((link) => {
         const LinkIcon = SquaresPlusIcon;
         return (
+          <>
           <Link
             key={link.nombre}
             href={link.href}
@@ -36,6 +33,7 @@ export default function NavLinks({ list, ruta }:{list: optionField[], ruta:strin
             <LinkIcon className="w-6 hidden sm:block" />
             <p>{link.nombre}</p>
           </Link>
+          </>
         );
       })}
     </>

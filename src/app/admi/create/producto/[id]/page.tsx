@@ -1,8 +1,7 @@
-import CreateForm from "@/app/components/createForm";
+import CreateForm from "@/app/ui/product/createForm";
 import { findMarcasByCategoria } from "@/app/consult/fetching";
 import { getServerSession } from "next-auth";
 import Not_found from "@/app/components/not_found";
-
 
 export default async function Page({params}: {params: {id:string}}) {
 
@@ -16,6 +15,6 @@ export default async function Page({params}: {params: {id:string}}) {
                 <CreateForm marcas={marcas} categoriaId={params.id}/> :
                 <Not_found texto="No se encontro la ruta!"/>
             }
-        </div>
+        </div> 
     )
 }

@@ -2,10 +2,10 @@
 
 import { PhotoIcon } from '@heroicons/react/24/solid';
 import { dataForm, optionField } from '@/app/lib/definitions';
-import { ImputListName } from './list-name-imput';
+import { ImputListName } from '../../components/list-name-imput';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { createProduct } from '../lib/actions';
+import { createProduct } from '../../lib/actions';
 
 
 
@@ -22,6 +22,7 @@ export default function CreateForm({ marcas, categoriaId }: { marcas: optionFiel
   const [imgScr, setImgScr] = useState<string | null>(null);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+
     const {name, value}= e.target as HTMLInputElement | HTMLTextAreaElement;
     const { files } = e.target as HTMLInputElement;
     if(name === 'imagen' && files){
@@ -46,6 +47,8 @@ export default function CreateForm({ marcas, categoriaId }: { marcas: optionFiel
         if(imgScr) URL.revokeObjectURL(imgScr);
     };
   }, [imgScr]);
+
+
   
   const HandleSubmit = async (e: any)=>{
     e.preventDefault();
@@ -137,7 +140,7 @@ export default function CreateForm({ marcas, categoriaId }: { marcas: optionFiel
 
       <div className="mt-6 flex items-center justify-end gap-x-6">
         <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
-          <a href='/'>Cancelar</a>
+          <a href={`/dashboard/${categoriaId}`}>Cancelar</a>
         </button>
         <button
           type="submit"

@@ -1,10 +1,8 @@
 import Image from "next/image";
 import { cardData } from "../../lib/definitions";
-import { Delete, Update } from "./buttons";
+import { DeletProduct, UpdateProduct } from "./buttons";
 import { getServerSession } from "next-auth";
 import { Consultar } from "../../components/whatsapp";
-
-
 
 
 export default async function SectionProductCard({list}:{list: cardData[]}){
@@ -37,8 +35,8 @@ export default async function SectionProductCard({list}:{list: cardData[]}){
               <div className="absolute flex bottom-0 right-0 space-x-2">
               { session ?
                 <div className='flex space-x-2'>
-                  <Update id={item.id}/>
-                  <Delete id={item.id}/>
+                  <UpdateProduct id={item.id}/>
+                  <DeletProduct id={item.id}/>
                 </div>
                 :
                 <Consultar nombre={item.nombre} descripcion={item.descripcion}/>

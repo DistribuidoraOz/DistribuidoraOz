@@ -6,8 +6,8 @@ const people = [
         'https://res.cloudinary.com/dnnafr8ny/image/upload/v1724881193/istockphoto-1359876068-612x612_oyxigm.jpg',
     },
     {
-      name: 'Envios reaponsables',
-      role: 'Nos comprometemos a que nuestros envios sean seguros, rapidos y oportunos para tu tranquilidad.',
+      name: 'Envios responsables',
+      role: 'Nos comprometemos a que nuestros envìos sean seguros, ràpidos y oportunos para tu tranquilidad.',
       imageUrl:
         'https://res.cloudinary.com/dnnafr8ny/image/upload/v1723577927/istockphoto-1411757433-612x612_mfl6ji.jpg'
     },

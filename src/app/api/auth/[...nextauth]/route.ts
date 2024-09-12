@@ -18,6 +18,9 @@ const handler = NextAuth({
       const email_auth = ['distribuidoraoz001@gmail.com', 'ssebass_ross@hotmail.com'];
       return email_auth.includes(user.email!);
     }
+  },
+  session: {
+    strategy: 'jwt',
   }
 })
 

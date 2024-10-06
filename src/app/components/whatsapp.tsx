@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 
 
 export function WhatsAppImg(){
-    const phoneNumber = '5491165142079';
+    const phoneNumber = '5491145261881';
 
     const message = encodeURIComponent(`Hola, Distribuidora Oz!!.
   Quisiera saber más detalles sobre sus productos.
@@ -30,7 +30,7 @@ export function WhatsAppImg(){
 }
 
 export function Consultar({nombre, descripcion}:{nombre:string, descripcion:string}){
-    const phoneNumber = '5491165142079';
+    const phoneNumber = '5491145261881';
 
     const message = encodeURIComponent(`Hola, Distribuidora Oz!!.
   Quisiera mas informacio del producto:

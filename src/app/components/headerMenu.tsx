@@ -103,7 +103,7 @@ export default function HeaderMenu({list}: {list: optionField[]}){
           <a href="/nosotros" className="text-sm font-semibold leading-6 text-gray-900 no-underline">
             Nosotros
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900 no-underline">
+          <a href="/contactos" className="text-sm font-semibold leading-6 text-gray-900 no-underline">
             Contactos
           </a>
         </PopoverGroup>
@@ -173,7 +173,7 @@ export default function HeaderMenu({list}: {list: optionField[]}){
                   Nosotros
                 </a>
                 <a
-                  href='#'
+                  href='/contactos'
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-cyan-50 no-underline"
                 >
                   Contactos
